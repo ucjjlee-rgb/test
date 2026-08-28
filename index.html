@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="가위바위보를 플레이하고 누적 전적과 승률을 확인하세요." />
+  <title>한판승부 — 가위바위보</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Black+Han+Sans&family=Pretendard:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="./style.css" />
+</head>
+<body>
+  <div class="noise"></div>
+  <main>
+    <header>
+      <a class="brand" href="/" aria-label="한판승부 홈"><span>한판</span>승부</a>
+      <div class="live"><i></i> 전적 자동 저장</div>
+    </header>
+
+    <section class="game-card" aria-labelledby="game-title">
+      <div class="eyebrow">ROCK · PAPER · SCISSORS</div>
+      <h1 id="game-title">뭘 낼지 정했어?</h1>
+      <p class="lead">하나를 골라. 컴퓨터는 이미 마음을 정했으니까.</p>
+
+      <div class="choices" role="group" aria-label="가위바위보 선택">
+        <button class="choice" data-choice="scissors"><span class="emoji">✌️</span><b>가위</b><small>SCISSORS</small></button>
+        <button class="choice featured" data-choice="rock"><span class="emoji">✊</span><b>바위</b><small>ROCK</small></button>
+        <button class="choice" data-choice="paper"><span class="emoji">✋</span><b>보</b><small>PAPER</small></button>
+      </div>
+
+      <div class="result" id="result" aria-live="polite">
+        <span class="result-label">READY</span>
+        <strong>당신의 선택을 기다리는 중</strong>
+        <p>선택하는 순간 승부가 시작됩니다.</p>
+      </div>
+    </section>
+
+    <section class="record" aria-labelledby="record-title">
+      <div class="section-heading">
+        <div><span class="kicker">MY RECORD</span><h2 id="record-title">나의 전적</h2></div>
+        <button id="refresh" class="refresh" aria-label="전적 새로고침">↻ 새로고침</button>
+      </div>
+      <div class="stats">
+        <article class="stat primary"><span>승률</span><strong id="winRate">0<small>%</small></strong><div class="bar"><i id="winBar"></i></div></article>
+        <article class="stat"><span>전체 경기</span><strong id="total">0</strong><small>GAMES</small></article>
+        <article class="stat win"><span>승리</span><strong id="wins">0</strong><small>WINS</small></article>
+        <article class="stat draw"><span>무승부</span><strong id="draws">0</strong><small>DRAWS</small></article>
+        <article class="stat loss"><span>패배</span><strong id="losses">0</strong><small>LOSSES</small></article>
+      </div>
+
+      <div class="history-wrap">
+        <div class="history-title"><h3>최근 경기</h3><span>최대 10경기</span></div>
+        <div id="history" class="history"><div class="empty">아직 기록이 없어요. 첫 승부를 시작해 보세요!</div></div>
+      </div>
+    </section>
+  </main>
+  <footer>오늘도 정정당당하게, 한판승부.</footer>
+  <script src="./app.js"></script>
+</body>
+</html>
